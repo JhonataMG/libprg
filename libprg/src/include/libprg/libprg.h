@@ -30,4 +30,16 @@ int remover_o ();
 /** */
 int limpa_men ();
 
+/** Adiciona um elemento no topo da pilha */
+int push (int v, int tam);
+
+/** Remove o elemento que está no topo da pilha */
+int pop (int v, int tam);
+
+/** Retorna o total de elementos na pilha */
+int size_p (int tam);
+
+/** Indica se a pilha está vazia ou não */
+int empty_p (int tam);
+
 #endif
