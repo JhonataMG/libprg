@@ -1,45 +1,46 @@
 #ifndef LIBPRG_LIBPRG_H
 #define LIBPRG_LIBPRG_H
 
-typedef struct{
-    int v;
-    int tam [100];
-} pessoa_t;
+typedef struct {
+    int vetor;
+    int tamanho;
+} fila_t;
 
-/** Cria um novo vetor */
-int criar (int v, int tam);
+/** Adiciona um elemento no final da fila */
+int enqueue(fila_t *fila , int elemento);
 
-/** insere um linearmente */
-int inserir (int v, int tam);
+/** Remove o elemento que está no início da fila */
+int dequeue(fila_t *fila);
 
-/** insere de forma ordenada */
-int inserir_o (int v, int tam);
+/** Retorna o elemento que está no início da fila */
+int head(fila_t *fila);
 
-/** busca linearmente no v */
-int busca_lin (int v, int tam);
+/** Retorna o elemento que está no final da fila */
+int tail(fila_t *fila);
 
-/** busca binaria no v */
-int busca_bin (int v, int tam);
+/** Retorna o total de elementos na fila */
+int size(fila_t *fila);
 
-/** */
-int remover ();
+/** Indica se a fila está vazia ou não */
+int empty(fila_t *fila);
 
-/** */
-int remover_o ();
+/** Indica se a fila está cheia ou não */
+int full(fila_t *fila);
 
-/** */
-int limpa_men ();
+/**  */
+int vet_pilha(pilha_t *pilha);
 
 /** Adiciona um elemento no topo da pilha */
-int push (int v, int tam);
+int push(pilha_t *pilha, int elemento);
 
 /** Remove o elemento que está no topo da pilha */
-int pop (int v, int tam);
+int pop(pilha_t *pilha);
 
 /** Retorna o total de elementos na pilha */
-int size_p (int tam);
+int size_p(pilha_t pilha);
 
 /** Indica se a pilha está vazia ou não */
-int empty_p (int tam);
+int empty_p(pilha_t pilha);
+
 
 #endif
