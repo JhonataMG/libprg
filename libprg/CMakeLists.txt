@@ -10,7 +10,8 @@ set(SOURCES
         "${CMAKE_CURRENT_LIST_DIR}/src/libprg/pilha.c"
 )
 
-add_library(libprg)
+add_library(libprg
+        src/libprg/lista_encadeada.c)
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
 
