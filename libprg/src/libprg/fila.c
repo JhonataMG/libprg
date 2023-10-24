@@ -1,4 +1,8 @@
 #include <libprg/libprg.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int criar(int *vetor,int tamanho)
 {
