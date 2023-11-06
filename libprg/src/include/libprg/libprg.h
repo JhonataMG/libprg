@@ -113,5 +113,11 @@ void destruir(no_t *inicio);
 // Algoritimos de ordenação
 
 
+/* Particiona o vetor para ordenar */
+int particiona(int vetor, int inicio, int fim);
+
+/* Troca posição de a por b */
+float trocar_posicao(int a, int b );
+
 
 #endif

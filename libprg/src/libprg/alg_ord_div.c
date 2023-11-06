@@ -2,18 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int particiona(int vetor, int inicio, int fim);
+int trocar_posicao(int a, int b);
+
 
 int merge_sort(int vetor, int esq, int dir){
     int meio;
     if( esq < dir)
         meio = esq+(dir-esq)/2;
-
     // Ordene as duas metades... "conquista"
     merge_sort(vetor, esq, meio);
     merge_sort(vetor, meio+1, dir);
     return vetor;
 }
+
 void merge(int *vetor, int esq, int dir, int meio){
     // Criando vetor aux vazio
     int aux[(dir-esq+1)];
@@ -44,6 +45,7 @@ void merge(int *vetor, int esq, int dir, int meio){
     }
     
 }
+
 int quicksort (int vetor, int inicio, int fim) {
    int p;
     if (inicio < fim) {
@@ -51,10 +53,27 @@ int quicksort (int vetor, int inicio, int fim) {
         quicksort(vetor, inicio, p-1);
         quicksort(vetor, p+1, fim);
     }
-
-
+    return vetor;
 }
 
 int particiona(int vetor, int inicio, int fim) {
-    return 0;
+    int i, pivo, aux;
+    pivo = vetor[fim];
+    i = inicio-1;
+    for (int j = inicio; j < fim-1; ++j) {
+        if (vetor[j] <= pivo){
+            i = i+1;
+            trocar_posicao(vetor[i], vetor[j]);
+        }
+    }
+    i = i+1;
+    trocar_posicao(vetor[i], vetor[fim]);
+    return (i);
+}
+
+float trocar_posicao(int a, int b) {
+    float aux;
+    aux = a;
+    a = b;
+    return b = aux;
 }
