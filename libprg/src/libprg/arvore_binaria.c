@@ -40,3 +40,19 @@ bool busca(no_t *raiz, int valor) {
     if (valor < raiz->valor) return busca(raiz->esquerda, valor);
     return busca(raiz->direita, valor);
 }
+void imprimir(no_t *raiz);
+
+int main() {
+    no_t *raiz = NULL;
+    int n = 10;
+    /** printf("Insira uma qts de nós: \n");
+    scanf("%n",&n); **/
+    for (int i = 0; i < n; ++i) {
+        int nrand = rand() %100 +1;
+        raiz = inserir_valor(raiz, nrand);
+    }
+    printf("Arvore: \n");
+    imprimir(raiz);
+
+    return 0;
+}
