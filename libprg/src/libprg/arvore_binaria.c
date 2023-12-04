@@ -42,6 +42,14 @@ bool busca(no_t *raiz, int valor) {
 }
 void imprimir(no_t *raiz);
 
+void inorder(no_t *raiz) {
+    if (raiz != NULL) {
+        inorder(raiz->esquerda);
+        printf("%d ", raiz->valor);
+        inorder(raiz->direita);
+    }
+}
+
 int main() {
     no_t *raiz = NULL;
     int n = 10;
@@ -51,8 +59,7 @@ int main() {
         int nrand = rand() %100 +1;
         raiz = inserir_valor(raiz, nrand);
     }
-    printf("Arvore: \n");
-    imprimir(raiz);
+    inorder(raiz);
 
     return 0;
 }
