@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -7,6 +8,10 @@ typedef struct no {
     struct  no *esquerda;
     struct  no *direita;
 } no_t;
+
+
+void enfileirar (no_t *raiz, int valor) {
+}
 
 no_t *criar_no (int valor) {
     no_t *no = (no_t*) malloc(sizeof(no_t));
@@ -34,6 +39,19 @@ no_t  *inserir_valor (no_t *raiz, int valor) {
     return raiz;
 }
 
+no_t *remover_valor (no_t *raiz, int valor) {
+    if (raiz == NULL) return raiz;
+    if (valor < raiz->valor) {
+        raiz->esquerda = remover_valor(raiz , valor);
+    } else if (valor > raiz->valor) {
+        raiz->direita = remover_valor(raiz, valor);
+    } else {
+        // nó com dois filhos
+        // if nó folha ou nó com um filho
+    }
+    return raiz;
+}
+
 bool busca(no_t *raiz, int valor) {
     if (raiz == NULL) return false;
     if (valor == raiz->valor) return true;
@@ -50,6 +68,17 @@ void inorder(no_t *raiz) {
     }
 }
 
+void percurso_largura (no_t *raiz) {
+    while (raiz != NULL) {
+        printf("%d",raiz->valor);
+    } if (raiz->esquerda != NULL){
+        enfileirar(raiz->esquerda);
+    } if (raiz->direita != NULL){
+        enfileirar(raiz->direita);
+    }
+    return;
+}
+
 int main() {
     no_t *raiz = NULL;
     int n = 10;
@@ -60,6 +89,5 @@ int main() {
         raiz = inserir_valor(raiz, nrand);
     }
     inorder(raiz);
-
     return 0;
 }
