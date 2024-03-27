@@ -7,6 +7,8 @@ typedef struct {
     int tamanho;
 } fila_t;
 
+/** Cria uma fila */
+int criar (int *vetor,int tamanho);
 
 /** Adiciona um elemento no final da fila */
 int enqueue(fila_t *fila , int elemento);
@@ -15,19 +17,19 @@ int enqueue(fila_t *fila , int elemento);
 int dequeue(fila_t *fila);
 
 /** Retorna o elemento que está no início da fila */
-int head(fila_t *fila);
+int getHead(fila_t *fila);
 
 /** Retorna o elemento que está no final da fila */
-int tail(fila_t *fila);
+int getTail(fila_t *fila);
 
 /** Retorna o total de elementos na fila */
-int size(fila_t *fila);
+int getSize(fila_t *fila);
 
 /** Indica se a fila está vazia ou não */
-int empty(fila_t *fila);
+int isEmpty(fila_t *fila);
 
 /** Indica se a fila está cheia ou não */
-int full(fila_t *fila);
+int isfull(fila_t *fila);
 
 typedef struct ElementoLista{
     char *dado;

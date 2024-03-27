@@ -6,7 +6,7 @@
 
 int criar(int *vetor,int tamanho)
 {
-    //Verificr memória
+    //Verificar memória
     vetor = (int*) calloc(tamanho,sizeof (int));
 
     return 0;

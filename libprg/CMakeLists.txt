@@ -16,7 +16,8 @@ add_library(libprg
         src/libprg/alg_ord_div.c
         src/libprg/arvore_binaria.c
         src/libprg/arvore_avl.c
-        src/libprg/tabela_hash.c)
+        src/libprg/tabela_hash.c
+        src/libprg/lista.c)
 target_sources(libprg PUBLIC ${SOURCES})
 target_include_directories(libprg PUBLIC ${CMAKE_CURRENT_LIST_DIR}/src/include)
 
