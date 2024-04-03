@@ -1,12 +1,13 @@
-//
-// Created by aluno on 25/09/23.
-//
 #include <libprg/libprg.h>
+#include <stdlib.h>
 
-int vet_pilha(pilha_t *pilha)
-{
-    pilha->vetor = (int*) calloc(pilha->tamanho,sizeof (int));
+int vet_pilha(pilha_t *pilha) {
+    pilha->vetor = (int *) calloc(pilha->tamanho, sizeof(int));
     pilha->topo = -1;
+    if (pilha->vetor == NULL) {
+        return 0;
+    }
+    return 1;
 }
 
 int push(pilha_t *pilha, int elemento)
@@ -18,8 +19,7 @@ int push(pilha_t *pilha, int elemento)
     pilha->topo++;
 }
 
-int pop(pilha_t *pilha)
-{
+int pop(pilha_t *pilha){
     if(pilha->vetor == NULL){
         return 1;
     }
@@ -33,10 +33,11 @@ int size_p(pilha_t pilha)
     return pilha.topo + 1;
 }
 
-int empty_p(pilha_t pilha)
+int empty_p(pilha_t *pilha)
 {
-    if(pilha.topo < 0){
+    if(pilha->topo < 0){
         return 1;
     }
     return 0;
 }
+

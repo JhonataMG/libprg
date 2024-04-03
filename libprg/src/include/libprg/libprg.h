@@ -36,10 +36,13 @@ typedef struct ElementoLista{
     struct ElementoLista *seguinte;
 } Elemento;
 
-typedef struct {
-    Elemento *inicio;
+//================================PILHA===============================//
+
+typedef struct{
+    int *vetor;
+    int topo;
     int tamanho;
-} pilha_t;
+}pilha_t;
 
 /**  */
 int vet_pilha(pilha_t *pilha);
@@ -54,9 +57,7 @@ int pop(pilha_t *pilha);
 int size_p(pilha_t tamanho);
 
 /** Indica se a pilha está vazia ou não */
-void empty_p (pilha_t *monte);
-
-
+int empty_p (pilha_t *monte);
 
 /* inicialização */
 void inicializacao (pilha_t *monte);
@@ -70,8 +71,7 @@ int desempilhar (pilha_t *monte);
 /* Exibição do elemento no topo da pilha (LastInFirstOut) */
 #define pilha_dado(monte) monte->início->dado;
 
-
-/* LISTAS ENCADEADAS */
+//============================LISTAS ENCADEADAS===========================//
 
 /* Lista circular encadeada não ordenada */
 typedef struct no_t{
