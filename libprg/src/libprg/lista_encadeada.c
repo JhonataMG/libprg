@@ -7,8 +7,8 @@ typedef struct no {
     struct no* proximo;
 } no_t;
 
-void soma(int a, int b, int *c){
-    *c = a+b;
+void criar(int dado){
+no_t* inicio = NULL;
 }
 
 void adicionar(no_t* *inicio, int dado){

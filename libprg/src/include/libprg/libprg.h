@@ -2,6 +2,7 @@
 #define LIBPRG_LIBPRG_H
 #include <stdbool.h>
 
+//============================ FILA ================================//
 typedef struct {
     int vetor;
     int tamanho;
@@ -31,12 +32,7 @@ int isEmpty(fila_t *fila);
 /** Indica se a fila está cheia ou não */
 int isfull(fila_t *fila);
 
-typedef struct ElementoLista{
-    char *dado;
-    struct ElementoLista *seguinte;
-} Elemento;
-
-//================================PILHA===============================//
+//============================PILHA===============================//
 
 typedef struct{
     int *vetor;
@@ -71,9 +67,15 @@ int desempilhar (pilha_t *monte);
 /* Exibição do elemento no topo da pilha (LastInFirstOut) */
 #define pilha_dado(monte) monte->início->dado;
 
-//============================LISTAS ENCADEADAS===========================//
+//============================ LISTAS SEQUENCIAL ====================================//
+typedef struct ElementoLista{
+    char *dado;
+    struct ElementoLista *seguinte;
+} Elemento;
 
-/* Lista circular encadeada não ordenada */
+//============================ LISTAS ENCADEADAS ===========================//
+
+// LISTA CIRCULAR ENCADEADA NÃO ORDENADA //
 typedef struct no_t{
     int dados;
     struct no_t* proximo;
@@ -85,35 +87,36 @@ no_t* criar(int dado);
 // buscar por dados
 bool buscar(no_t *inicio, int dado);
 
+// retorna todos elementos
+no_t * getelementos(no_t *inicio, int dado);
+
 // inserir novo nó
 no_t* inserir(no_t *inicio, int dado);
 
 // excluir toda lista
 void destruir(no_t *inicio);
 
-/* Lista circular encadeada ordenada */
+// LISTA CIRCULAR ENCADEADA ORDENADA //
+
 // criar uma lista
-no_t* criar(int dado);
+no_t* criar_ord(int dado);
 
 // buscar por dados
-bool buscar(no_t *inicio, int dado);
+bool buscar_ord(no_t *inicio, int dado);
 
 // inserir novo nó
-no_t* inserir(no_t *inicio, int dado);
+no_t* inserir_ord(no_t *inicio, int dado);
 
 // excluir toda lista
-void destruir(no_t *inicio);
+void destruir_ord(no_t *inicio);
 
 
-/* Lista circular duplamente encadeada não ordenada */
-/* Lista circular duplamente encadeada ordenada */
+// LISTA CIRCULAR DUPLAMENTE ENCADEADA NÃO ORDENADA //
+// LISTA CIRCULAR DUPLAMENTE ENCADEADA ORDENADA //
+// FILA REPRESENTADA EM UMA LISTA ENCADEADA //
+// PILHA REPRESENTADA EM UMA LISTA ENCADEADA //
 
-/* Fila representada em uma lista encadeada */
-
-/* Pilha representada em uma lista encadeada */
-
-// Algoritimos de ordenação
-
+//==========================ALGORITIMOS DE ORDENAÇÃO=======================//
 
 /* Particiona o vetor para ordenar */
 int particiona(int vetor, int inicio, int fim);
