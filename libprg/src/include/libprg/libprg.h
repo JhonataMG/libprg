@@ -81,9 +81,6 @@ typedef struct no_t{
     struct no_t* proximo;
 } no_t;
 
-// criar uma lista
-no_t* criar(int dado);
-
 // buscar por dados
 bool buscar(no_t *inicio, int dado);
 
@@ -98,9 +95,6 @@ void destruir(no_t *inicio);
 
 // LISTA CIRCULAR ENCADEADA ORDENADA //
 
-// criar uma lista
-no_t* criar_ord(int dado);
-
 // buscar por dados
 bool buscar_ord(no_t *inicio, int dado);
 
@@ -112,8 +106,11 @@ void destruir_ord(no_t *inicio);
 
 
 // LISTA CIRCULAR DUPLAMENTE ENCADEADA NÃO ORDENADA //
+
 // LISTA CIRCULAR DUPLAMENTE ENCADEADA ORDENADA //
+
 // FILA REPRESENTADA EM UMA LISTA ENCADEADA //
+
 // PILHA REPRESENTADA EM UMA LISTA ENCADEADA //
 
 //==========================ALGORITIMOS DE ORDENAÇÃO=======================//

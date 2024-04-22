@@ -7,10 +7,6 @@ typedef struct no {
     struct no* proximo;
 } no_t;
 
-void criar(int dado){
-no_t* inicio = NULL;
-}
-
 void adicionar(no_t* *inicio, int dado){
     no_t* novo = malloc(sizeof(no_t));
     novo->dado = dado;
@@ -50,6 +46,52 @@ void limpar(no_t* *inicio){
     *inicio = NULL;
 }
 
+//============================== ORDENADO ================
+
+void inserir_ord (no_t* *inicio, int dado){
+    no_t* novo = malloc(sizeof(no_t));
+    novo->dado = dado;
+    novo->proximo = *inicio;
+    *inicio = novo;
+
+    if (*inicio == NULL || (*inicio)->dado >= dado) {
+        novo->proximo = *inicio;
+    } else {
+        no_t* atual = *inicio;
+        if (atual->dado < dado) {
+            novo->proximo = atual->proximo;
+            atual->proximo = novo;
+        } else {
+            atual = atual->proximo;
+        }
+        while (atual->proximo != NULL && atual->proximo->dado < dado) {
+            atual = atual->proximo;
+        }
+        novo->proximo = atual->proximo;
+        atual->proximo = novo;
+    }
+}
+
+void remover_ord (no_t* *inicio, int elemento){
+    no_t* atual = *inicio;
+    no_t* anterior = NULL;
+
+    while (atual != NULL && atual->dado != elemento){
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    if (atual == NULL) {
+        printf("Não existe.\n");
+        return;
+    }
+    if (anterior == NULL) {
+        *inicio = atual->proximo;
+    } else {
+        anterior->proximo = atual->proximo;
+    }
+    free(atual);
+}
+//===========================================================================
 int main() {
 
 /*
@@ -71,12 +113,12 @@ int main() {
 */
     no_t  *inicio = NULL;
 
-    adicionar(&inicio, 1);
-    adicionar(&inicio, 2);
-    adicionar(&inicio, 3);
-    adicionar(&inicio, 4);
+    inserir_ord(&inicio, 3);
+    inserir_ord(&inicio, 2);
+    inserir_ord(&inicio, 1);
+    inserir_ord(&inicio, 4);
 
-    remover(&inicio,2);
+    remover_ord(&inicio,2);
 
     while (inicio !=NULL){
         printf("%d\n",inicio->dado);
